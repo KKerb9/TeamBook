@@ -1,6 +1,6 @@
 filename = "main.cpp"
 with open(filename, 'r') as f:
-    with open('new'+filename, 'w') as t:
+    with open('new_'+filename, 'w') as t:
         for line in f:
             s = line
             pos = s.find('.at(')
