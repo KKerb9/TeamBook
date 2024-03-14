@@ -41,9 +41,9 @@ void solve () {
 signed main () {
 
 #ifdef LOCAL
-    freopen("input.txt", "r", stdin)
-    freopen("output.txt", "w", stdout)
-    cin >> t
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    cin >> t;
 #endif
 
     ios::sync_with_stdio(0);
