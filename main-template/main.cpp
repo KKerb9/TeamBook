@@ -22,7 +22,7 @@ using pr = pair<T1, T2>;
 using pii = pair<int, int>;
 const int MOD = 1e9 + 7;
 const int INF = 1e9;
-int t = 1;
+int reps = 1;
 
 template<typename T>
 inline void print (vector<T> &arr) {
@@ -39,17 +39,16 @@ void solve () {
 ////////////////////////////////////////////////////////////////////////////////////
 
 signed main () {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
 #ifdef LOCAL
     freopen("input.txt", "r", stdin)
     freopen("output.txt", "w", stdout)
-    cin >> t
+    cin >> reps
 #endif
 
-    ios::sync_with_stdio(0);
-    cin.tie(0);
-
-    for (int i = 0; i < t; i++) {
+    for (int i = 0; i < reps; i++) {
 #ifdef LOCAL 
         cout << "Test case #" << i + 1 << " ================" << '\n';
 #endif
