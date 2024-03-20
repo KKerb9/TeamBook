@@ -43,9 +43,9 @@ signed main () {
     cin.tie(0);
 
 #ifdef LOCAL
-    freopen("input.txt", "r", stdin)
-    freopen("output.txt", "w", stdout)
-    cin >> reps
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+    cin >> reps;
 #endif
 
     for (int i = 0; i < reps; i++) {
