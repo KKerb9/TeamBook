@@ -22,6 +22,7 @@ using pr = pair<T1, T2>;
 using pii = pair<int, int>;
 const int MOD = 1e9 + 7;
 const int INF = 1e9;
+const long double EPS = 1e-9;
 int reps = 1;
 
 template<typename T>
