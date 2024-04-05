@@ -21,27 +21,36 @@ template<typename T1, typename T2>
 using pr = pair<T1, T2>;
 using pii = pair<int, int>;
 const int MOD = 1e9 + 7;
-const int INF = 1e9;
+const int INF = 1e9 + 1;
+const int INFLL = 1e18 + 1;
 const long double EPS = 1e-9;
 int reps = 1;
 
+mt19937 rnd(chrono::steady_clock::now().time_since_epoch().count());
+
 template<typename T>
-inline void print (vector<T> &arr) {
+inline void print(vector<T> &arr) {
     for (auto el : arr) cout << el << ' ';
     cout << '\n';
 }
 
-////////////////////////////////////////////////////////////////////////////////////
+template<typename T>
+inline void print(set<T> &a) {
+    for (auto el : a) cout << el << ' ';
+    cout << '\n';
+}
 
-void solve () {
+void solve() {
     
 }
 
-////////////////////////////////////////////////////////////////////////////////////
-
-signed main () {
+signed main() {
+#ifdef DBG
+    cout << "START\n";
+#else
     ios::sync_with_stdio(0);
     cin.tie(0);
+#endif
 
 #ifdef LOCAL
     freopen("input.txt", "r", stdin);
@@ -61,3 +70,5 @@ signed main () {
 
     return 0;
 }
+
+// g++ -std=c++23 -Wall -Wextra -Wshadow -O2 -DGLIBCXX_DEBUG -DLOCAL (-DDBG) (-fsanitize=addres,undefined) A.cpp -o A

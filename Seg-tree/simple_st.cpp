@@ -22,7 +22,7 @@
     }
 */
 
-#include "..\main-template\main.cpp"
+#include "../main-template/main.cpp"
 
 template<typename Node, typename T>
 struct SegTree {

@@ -1,14 +1,19 @@
-#include "..\main-template\main.cpp"
+#include "../main-template/main.cpp"
 
 using namespace std;
 
-signed main() {
-    int a, b; cin >> a >> b;
+void aboba() {
+    int n; cin >> n;
 
-    // проверить принадлежность бита маске a
-    if (a | (1 << b) != a) {
-        // не пренадлежит
+    // перебор подмасок
+    for (int mask = 0; mask < (1 << n); mask++) {
+        // aboba
     }
 
-    
+    // проверить равен ли бит на месте x 1
+    int x, mask; 
+    if (mask & (1 << x)) // mask[x] = 1
+
+    // включить бит x
+    mask = mask + (1 << x);    
 }
