@@ -2,7 +2,7 @@
 я еще не проверял нормально, это порсто наброски, буду доделывать, заодно Ляховца помочь попрошу
 */
 
-#include "..\main-template\main.cpp"
+#include "../main-template/main.cpp"
 
 using namespace std;
 
