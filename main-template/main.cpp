@@ -71,4 +71,4 @@ signed main() {
     return 0;
 }
 
-// g++ -std=c++23 -Wall -Wextra -Wshadow -O2 -DGLIBCXX_DEBUG -DLOCAL (-DDBG) (-fsanitize=addres,undefined) A.cpp -o A
+// g++ -std=c++23 -Wall -Wextra -Wshadow -O2 -D_GLIBCXX_DEBUG -DLOCAL (-DDBG) (-fsanitize=addres,undefined) A.cpp -o A
