@@ -11,51 +11,52 @@ Kerb9_
 
 using namespace std;
 
-const ll k = 500;
-vector<ll> a(2e5);
+const int k = 500;
+vector<int> a(2e5);
 
 struct Qu {
-    ll ind, l, r;
+    int ind, l, r;
 };
 
-vector<ll> cnt(1e6 + 1);
-ll res = 0;
+vector<int> cnt(1e6 + 1);
+int res = 0;
 
-void add (ll i) {
+void add (int i) {
     res -= a[i] * cnt[a[i]] * cnt[a[i]];
     cnt[a[i]]++;
     res += a[i] * cnt[a[i]] * cnt[a[i]];
 }
 
-void del (ll i) {
+void del (int i) {
     res -= a[i] * cnt[a[i]] * cnt[a[i]];
     cnt[a[i]]--;
     res += a[i] * cnt[a[i]] * cnt[a[i]];
 }
 
 void solve () {
-    ll n, tt; cin >> n >> tt;
-    for (ll i = 0; i < n; i++) {
+    int n, tt; cin >> n >> tt;
+    for (int i = 0; i < n; i++) {
         cin >> a[i];
     }
-    vector<vector<Qu>> b(k);
-    vector<ll> answ(tt);
-    for (ll i = 0; i < tt; i++) {
+    int sz = n / k + 1;
+    vector<vector<Qu>> b(sz);
+    vector<int> answ(tt);
+    for (int i = 0; i < tt; i++) {
         Qu q;
         cin >> q.l >> q.r; q.l--; q.r--;
         q.ind = i;
         b[q.l / k].push_back(q);
     }
-    for (ll i = 0; i < k; i++) {
+    for (int i = 0; i < sz; i++) {
         sort(b[i].begin(), b[i].end(), [ & ](Qu i, Qu j) {
             if (i.r == j.r) return i.l < j.l;
             return i.r < j.r;
         });
     }
-    for (ll i = 0; i < k; i++) {
-        ll l = i * k, r = i * k;
+    for (int i = 0; i < sz; i++) {
+        int l = i * sz, r = i * sz;
         for (Qu q : b[i]) {
-            ll tl = q.l, tr = q.r;
+            int tl = q.l, tr = q.r;
             while (r <= tr) {
                 add(r);
                 r++;
