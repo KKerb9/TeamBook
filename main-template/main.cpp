@@ -59,13 +59,14 @@ signed main() {
 #endif
 
     for (int i = 0; i < reps; i++) {
-#ifdef LOCAL 
-        cout << "Test case #" << i + 1 << " ================" << '\n';
+#ifdef LOCAL
+        cout << "=========== Test " << i << " ===========\n";
 #endif
         solve();
 #ifdef LOCAL
-        cout << "End Test ====================\n\n";
+        cout << "========== End Test ==========\n\n";
 #endif
+    }
     }
 
     return 0;
