@@ -67,7 +67,6 @@ signed main() {
         cout << "========== End Test ==========\n\n";
 #endif
     }
-    }
 
     return 0;
 }
