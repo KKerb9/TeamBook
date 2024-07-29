@@ -40,3 +40,26 @@ vector<bool> resheto(int n) {
     }
     return prime;
 }
+
+vector<int> fast_resheto(int n) {
+    vector<int> r(n + 1, -1);
+    for (int i = 2; i * i <= n; i++) {
+        if (r[i] == -1) 
+            for (int j = 2 * i; j <= n; j += i) 
+                if(r[j] == -1) r[j] = i;
+    }
+    return r;
+}
+
+int binpow(int a, int n, int p) {
+    int res = 1;
+    a %= p;
+    while (n) {
+        if (n & 1) {
+            res = (res * a) % p;
+        }
+        n >>= 1;
+        a = (a * a) % p;
+    }
+    return res;
+}

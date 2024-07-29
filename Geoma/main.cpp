@@ -313,3 +313,75 @@ ld line_to_line(const line & f1, const pt & a, const pt & b) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool is_pt_in_angle(const pt& aa, const pt& oa, const pt& ba, const pt& pa) {
+    pt a = aa - oa;
+    pt b = ba - oa;
+    pt p = pa - oa;
+    if (sml(angle(a, b), 0)) swap(a, b);
+    if (grteq(a % p, 0) && grteq(0, b % p)) return true;
+    else return false;
+}
+
+vector<pt> graham(vector<pt>& pts) {
+    auto it = min_element(all(pts), [ & ](const pt&i, const pt& j) {
+        return tie(i.y, i.x) < tie(j.y, j.x);
+    });
+    swap(*it, pts.front());
+    pt s = pts[0];
+    sort(all(pts), [ & ](ve i, ve j){
+        if ((i - s) % (j - s) == 0) return (i - s).lenlen() < (j - s).lenlen();
+        return ((i - s) % (j - s)) > 0;
+    });
+    vector<pt> res;
+    int sz = 0;
+    for (auto p : pts) {
+        while (sz > 1) {
+            if ((res[sz - 1] - res[sz - 2]) % (p - res[sz - 1]) <= 0) {
+                sz--;
+                res.pop_back();
+            } else break;
+        }
+        sz++;
+        res.push_back(p);
+    }
+    return res;
+}
+
+vector<pt> jarvis(vector<pt>& pts) {
+    int s = 0;
+    for (int i = 0; i < (int)pts.size(); i++) {
+        if (pts[i].x == pts[s].x) {
+            if (pts[i].y < pts[s].y) s = i;
+        } else if (pts[i].x < pts[s].x) s = i;
+    }
+    vector<pt> res;
+    res.push_back(pts[s]);
+    int now = s;
+    vector<int>used(pts.size());
+    used[s] = 1;
+    while (true) {
+        int next = -1;
+        for (int i = 0; i < (int)pts.size(); i++) {
+            if (!used[i] || ((i == s && now != s))) {
+                if (next == -1) { next = i; }
+                else {
+                    ve v1 = pts[i] - pts[now];
+                    ve v2 = pts[next] - pts[now];
+                    if (v1 % v2 == 0) {
+                        if (v1.lenlen() < v2.lenlen()) { next = i; }
+                    } else if (v1 % v2 > 0) { next = i; }
+                }
+            }
+        }
+        if(next == -1) break;
+        now = next;
+        used[next] = 1;
+        if (now == s) {
+            break;
+        } else {
+            res.push_back(pts[now]);
+        }
+    }
+    return res;
+}
