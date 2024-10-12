@@ -2,6 +2,17 @@
 
 using namespace std;
 
+// ===============================================================
+
+const ull MOD = ULLONG_MAX;
+const int P = 2e5 + 3;
+
+int get(vector<int>&  pows, vector<int>& hash, int l, int r) {
+    return hash[r] - hash[l] * pows[r - l];
+}
+
+// ================================================================
+
 struct Hash { // предполгаются символы от 'a' до 'z'
     ll P;
     ll x_;
