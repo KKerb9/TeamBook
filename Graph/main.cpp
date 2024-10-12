@@ -5,13 +5,14 @@ using namespace std;
 vector<vector<int>> g;  // граф
 vector<int> used, h, up;  // посещ. верш, высота вершины v, мин высота на которую можно подняться из v через вершины ниже неё 
 
-// поиск мостов, без кр ребер и прочего говна
+// поиск мостов
 
 void dfs(int v, int p = -1) {
     used[v] = true;
     up[v] = h[v];
+    int cnt = 0;
     for (auto u : g[v]) {
-        if (u == p) continue;
+        if (u == p && !cnt) { cnt++; continue; }
         if (used[v]) up[v] = min(up[v], h[u]);
         else {
             h[u] = h[v] + 1;
