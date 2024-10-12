@@ -41,4 +41,18 @@ struct Fenwick {
         for (int i = pos; i < t.size(); i += i & -i)
             t[i] += x;
     }
+
+    // спуск по фенвику
+    // в данном случае - поиск префикса с суммой < s 
+    int lower_bound (int s) {
+        int k = 0;
+        int logn = ceil(log2(t.size() - 1));
+        for (int l = logn; l >= 0; l--) {
+            if (k + (1<<l) < t.size() && t[k + (1<<l)] < s) {
+                k += (1<<l);
+                s -= t[k];
+            }
+        }
+        return k;
+    }
 };
