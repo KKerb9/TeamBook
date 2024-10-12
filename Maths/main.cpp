@@ -58,7 +58,7 @@ vector<int> fast_resheto(int n) {  // r[i] -- последнее простое
     vector<int> r(n + 1, -1);
     for (int i = 2; i * i <= n; i++) {
         if (r[i] == -1) 
-            for (int j = 2 * i; j <= n; j += i) 
+            for (int j = i * i; j <= n; j += i) 
                 if (r[j] == -1) r[j] = i;
     }
     return r;
