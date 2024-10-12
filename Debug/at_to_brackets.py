@@ -1,6 +1,6 @@
 filename = "main.cpp"
 with open(filename, 'r') as f:
-    with open('new_'+filename, 'w') as t:
+    with open('new_' + filename, 'w') as t:
         for line in f:
             s = line
             pos = s.find('.at(')
@@ -14,6 +14,6 @@ with open(filename, 'r') as f:
                         opened += 1
                     elif (s[pos] == ')'):
                         closed += 1
-                s = s[:pos] + ']' + s[pos+1:]
+                s = s[:pos] + ']' + s[pos + 1:]
                 pos = s.find('.at(')
             print(s, file=t, end='')
