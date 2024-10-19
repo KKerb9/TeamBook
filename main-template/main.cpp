@@ -1,5 +1,5 @@
 // #pragma GCC optimize("O3,unroll-loops")
-// #pragma GCC target("avx2,popcnt")
+// #pragma GCC target("avx2,popcnt")  // popcnt ускор __builtin_popcnt()
 
 #include <bits/stdc++.h>
 
